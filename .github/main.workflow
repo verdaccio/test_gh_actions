@@ -22,7 +22,7 @@ action "Tag" {
     "CI",
     "Test",
   ]
-  args = "tag"
+  args = "tag v*"
 }
 
 action "Publish" {
