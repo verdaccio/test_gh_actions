@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/juanpicado/test_gh_actions/issues"
   },
-  "homepage": "https://github.com/juanpicado/test_gh_actions#readme"
+  "homepage": "https://github.com/juanpicado/test_gh_actions#readme",
+  "dependencies": {
+    "jquery": "^3.3.1"
+  }
 }
