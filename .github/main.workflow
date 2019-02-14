@@ -30,7 +30,7 @@ action "Publish" {
   args = "publish --access public -ddd"
   secrets = ["NPM_AUTH_TOKEN"]
   env = {
-    NPM_REGISTRY_URL = "https://registry.verdaccio.org"
+    NPM_REGISTRY_URL = "registry.verdaccio.org"
   }
   needs = ["Tag"]
 }
