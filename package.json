@@ -1,0 +1,20 @@
+{
+  "name": "skip_install",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/juanpicado/test_gh_actions.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/juanpicado/test_gh_actions/issues"
+  },
+  "homepage": "https://github.com/juanpicado/test_gh_actions#readme"
+}
