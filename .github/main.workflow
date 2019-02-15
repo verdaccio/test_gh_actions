@@ -1,20 +1,26 @@
-workflow "New workflow" {
+workflow "TestActions" {
   resolves = [
     "Publish Verdaccio",
-    "Test",
+    "Docker Lint",
   ]
   on = "push"
+}
+
+action "Docker Lint" {
+  uses = "docker://replicated/dockerfilelint"
+  args = ["Dockerfile"]
 }
 
 action "CI" {
   uses = "actions/npm@4633da3702a5366129dca9d8cc3191476fc3433c"
   args = "ci"
-  needs = ["Docker Lint"]
+  needs = ["Test"]
 }
 
 action "Test" {
   uses = "actions/npm@4633da3702a5366129dca9d8cc3191476fc3433c"
   args = "test"
+  needs = ["Docker Lint"]
 }
 
 action "Tag" {
@@ -24,21 +30,6 @@ action "Tag" {
     "Test",
   ]
   args = "branch master"
-}
-
-action "Publish" {
-  uses = "actions/npm@59b64a598378f31e49cb76f27d6f3312b582f680"
-  args = "publish --access public -ddd"
-  secrets = ["NPM_AUTH_TOKEN"]
-  env = {
-    NPM_REGISTRY_URL = "registry.verdaccio.org"
-  }
-  needs = ["Tag"]
-}
-
-action "Docker Lint" {
-  uses = "docker://replicated/dockerfilelint"
-  args = ["Dockerfile"]
 }
 
 action "Publish Verdaccio" {
