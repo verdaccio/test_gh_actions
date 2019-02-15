@@ -40,7 +40,7 @@ action "Publish Verdaccio" {
   args = "publish"
   secrets = ["NPM_AUTH_TOKEN"]
   env = {
-    VERDACCIO_REGISTRY_URL = "localhost:4873"
+    VERDACCIO_REGISTRY_URL = "0.0.0.0:4873"
   }
   needs = ["Tag"]
 }
