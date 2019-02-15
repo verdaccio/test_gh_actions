@@ -36,6 +36,6 @@ action "Publish" {
 }
 
 action "Publish Verdaccio" {
-  uses = "verdaccio/github-actions/publish@v0.1.0"
+  uses = "verdaccio/github-actions/publish@master"
   needs = ["Tag"]
 }
