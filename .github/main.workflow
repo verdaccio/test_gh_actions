@@ -1,6 +1,5 @@
 workflow "New workflow" {
   resolves = [
-    "Publish",
     "Publish Verdaccio",
     "Test",
   ]
