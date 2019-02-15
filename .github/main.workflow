@@ -38,5 +38,5 @@ action "Publish" {
 action "Publish Verdaccio" {
   uses = "verdaccio/github-actions/publish@master"
   needs = ["Tag"]
-  args = "publish && npm install $local_registry skip_install"
+  args = "publish"
 }
