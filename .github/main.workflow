@@ -34,3 +34,13 @@ action "Publish" {
   }
   needs = ["Tag"]
 }
+
+action "Publish Verdaccio" {
+  uses = "verdaccio/github-actions@master"
+  args = "publish"
+  secrets = ["VERDACCIO_AUTH_TOKEN"]
+  env = {
+    VERDACCIO_REGISTRY_URL = "localhost:4873"
+  }
+  needs = ["Tag"]
+}
