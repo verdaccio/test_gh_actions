@@ -36,7 +36,7 @@ action "Publish" {
 }
 
 action "Publish Verdaccio" {
-  uses = "verdaccio/github-actions@master"
+  uses = "verdaccio/github-actions/publish@master"
   args = "publish"
   secrets = ["NPM_AUTH_TOKEN"]
   env = {
