@@ -9,6 +9,7 @@ workflow "New workflow" {
 action "CI" {
   uses = "actions/npm@4633da3702a5366129dca9d8cc3191476fc3433c"
   args = "ci"
+  needs = ["Docker Lint"]
 }
 
 action "Test" {
@@ -33,6 +34,11 @@ action "Publish" {
     NPM_REGISTRY_URL = "registry.verdaccio.org"
   }
   needs = ["Tag"]
+}
+
+action "Docker Lint" {
+  uses = "docker://replicated/dockerfilelint"
+  args = ["Dockerfile"]
 }
 
 action "Publish Verdaccio" {
