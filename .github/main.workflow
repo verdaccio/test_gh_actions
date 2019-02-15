@@ -37,10 +37,6 @@ action "Publish" {
 
 action "Publish Verdaccio" {
   uses = "verdaccio/github-actions/publish@master"
-  args = "publish"
-  secrets = ["NPM_AUTH_TOKEN"]
-  env = {
-    VERDACCIO_REGISTRY_URL = "0.0.0.0:4873"
-  }
+  args = ""
   needs = ["Tag"]
 }
