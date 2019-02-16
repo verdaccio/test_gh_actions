@@ -5,6 +5,11 @@ workflow "TestActions" {
   on = "push"
 }
 
+action "Install" {
+  uses = "docker://node:10.15.1-alpine"
+  args = "npm install"
+}
+
 action "CI" {
   uses = "actions/npm@4633da3702a5366129dca9d8cc3191476fc3433c"
   args = "ci"
@@ -13,7 +18,8 @@ action "CI" {
 
 action "Test" {
   uses = "actions/npm@4633da3702a5366129dca9d8cc3191476fc3433c"
-  args = "test"
+  args = "test",
+  needs = ["Install"]
 }
 
 action "Tag" {
