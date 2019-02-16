@@ -32,7 +32,7 @@ action "Tag" {
   args = "branch master"
 }
 
-action "Publish Verdaccio" {
+action "Test Publish Package" {
   uses = "verdaccio/github-actions/publish@master"
   needs = ["Tag"]
   args = "publish"
@@ -40,9 +40,9 @@ action "Publish Verdaccio" {
 
 action "Publish" {
   uses = "actions/npm@59b64a598378f31e49cb76f27d6f3312b582f680"
-  needs = ["Publish Verdaccio"]
   env = {
     NPM_REGISTRY_URL = "registry.verdaccio.org"
     NPM_STRICT_SSL = "true"
   }
+  needs = ["Test Publish Package"]
 }
