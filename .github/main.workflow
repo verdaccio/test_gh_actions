@@ -1,14 +1,8 @@
 workflow "TestActions" {
   resolves = [
-    "Docker Lint",
     "Publish",
   ]
   on = "push"
-}
-
-action "Docker Lint" {
-  uses = "docker://replicated/dockerfilelint"
-  args = ["Dockerfile"]
 }
 
 action "CI" {
@@ -20,7 +14,6 @@ action "CI" {
 action "Test" {
   uses = "actions/npm@4633da3702a5366129dca9d8cc3191476fc3433c"
   args = "test"
-  needs = ["Docker Lint"]
 }
 
 action "Tag" {
