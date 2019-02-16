@@ -1,6 +1,6 @@
 {
   "name": "skip_install",
-  "version": "2.0.7-0",
+  "version": "2.0.0-pr23",
   "description": "",
   "main": "index.js",
   "scripts": {
