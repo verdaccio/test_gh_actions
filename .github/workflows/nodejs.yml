@@ -21,6 +21,16 @@ jobs:
       run: |
         npm install
         npm run build --if-present
+        y
         npm test
       env:
         CI: true
+    
+  bundlesize:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: bundlesize
+        run: |
+          yarn install
+          yarn run bundlesize
